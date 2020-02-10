@@ -14,16 +14,16 @@ public:
             return false;
 
         stack<TreeNode *> s;
-        set<int> m;
         s.push(root);
+        set<int> cache;
         
         while(!s.empty()) {
             TreeNode *top = s.top();
             s.pop();
-            if(m.find(top->val) != m.end())
+            if(cache.find(top->val) != cache.end())
                 return true;
             
-            m.insert(k-top->val);
+            cache.insert(k-top->val);
             if(top->left)
                 s.push(top->left);
             if(top->right)
