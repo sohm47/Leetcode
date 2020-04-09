@@ -8,15 +8,20 @@
  */
 class Solution {
 public:
+    // Time: O(N), Space: O(1)
     ListNode* middleNode(ListNode* head) {
-        ListNode* slow = head;
-        ListNode* fast = head;
+        if(!head || !head->next)
+            return head;
         
-        while(fast!=NULL && fast->next!=NULL) {
-            slow = slow->next;
-            fast = fast->next->next;
-        }        
+        ListNode *slowPointer=head, *fastPointer=head->next;
+        while(fastPointer && fastPointer->next) {
+            slowPointer=slowPointer->next;
+            fastPointer = fastPointer->next->next;
+        }
         
-        return slow;
+        if(!fastPointer)
+            return slowPointer;
+        
+        return slowPointer->next;
     }
 };
