@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // Time: O(MxN), Space: O(1)
     int minPathSum(vector<vector<int>>& grid) {
         if(grid.size() == 0)
             return 0;
@@ -17,7 +18,6 @@ public:
             }
         }
         
-        return grid[ROWS-1][COLS-1];
-            
+        return grid[ROWS-1][COLS-1];  
     }
 };
