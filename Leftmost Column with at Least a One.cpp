@@ -10,6 +10,7 @@
 
 class Solution {
 public:
+    // Time: O(M+N), Space: O(1)
     int leftMostColumnWithOne(BinaryMatrix &binaryMatrix) {
         vector<int> dimensions = binaryMatrix.dimensions();
         if(dimensions[0]*dimensions[1] == 0)
