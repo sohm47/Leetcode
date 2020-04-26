@@ -8,6 +8,7 @@ public:
     Node *head, *tail;
     
     int size;
+    // Space: O(N)
     unordered_map<int, Node*> cache;
     bool firstValue;
     
@@ -18,6 +19,7 @@ public:
         firstValue = true;
     }
     
+    // Time: O(1)
     int get(int key) {
         if(cache.find(key) == cache.end())
             return -1;
@@ -41,6 +43,7 @@ public:
         return head->value;
     }
     
+    // Time: O(1)
     void put(int key, int value) {
         if(get(key) == -1) {
             Node *tempNode = new Node(key, value);
