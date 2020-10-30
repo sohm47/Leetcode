@@ -1,13 +1,12 @@
 class Solution {
 public:
     bool capacity(vector<int>& weights, int &D, int &sum) {
-        int weight = 0, days = 0;
-        for(int i=0; i<weights.size(); i++) {
-            weight += weights[i];
-            if(weight > sum) {
-                weight = 0;
+        int total = 0, days = 0;
+        for(int &weight: weights) {
+            total += weight;
+            if(total > sum) {
+                total = weight;
                 ++days;
-                --i;
                 if(days > D)
                     return false;
             }
@@ -16,7 +15,6 @@ public:
         return days < D;
     }
     
-    // Time: O(NlogN), Space: O(1)
     int shipWithinDays(vector<int>& weights, int D) {
         int left = *max_element(weights.begin(), weights.end());
         int mid;
